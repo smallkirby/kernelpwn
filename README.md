@@ -1,12 +1,12 @@
 # kernel pwn
 ## About this repo
-This repository collects CTF kernel-pwn challenges and writeups.  
-Also, it introduces how to start learning kernel-pwn for beginners including me.  
-All the challs here are solved by me, though the writeup may be based on the author's one or others's ones.  
-I'm planning to include not only kernel-pwn, but also general non-userland pwn including QEMU, V8, multi-arch...  
-  
-**IMPORTANT**:   
-**If you know some good kernel(non-userland) pwn challs, please tell me and I'll solve it. Then I'll add it on this repo if I feel it good to solve.**  
+This repository collects CTF kernel-pwn challenges and writeups.
+Also, it introduces how to start learning kernel-pwn for beginners **including me**.
+All the challs here are solved by me, though the writeup may be based on the author's one or others's ones.
+I'm planning to include not only kernel-pwn, but also general non-userland pwn including QEMU, V8, multi-arch...
+
+**IMPORTANT**:
+**If you know some good kernel(non-userland) pwn challs, please tell me and I'll solve it. Then I'll add it on this repo if I feel it good to solve.**
 
 
 ## Good Challs
@@ -52,7 +52,7 @@ Frequently Updated now...
 
 
 ## My Blog
-My blog posts contain not only kernel-writeup, but normal userland-pwn and technique frequently used in pwning and so on...  
+My blog posts contain not only kernel-writeup, but normal userland-pwn and technique frequently used in pwning and so on...
 Please [check it out](https://smallkirby.hatenablog.com/archive).
 
 ## References
