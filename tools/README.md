@@ -2,6 +2,11 @@
 This dir contains tools/templates and explanations about them.
 
 ## contents
+### wrappers/plugins
+Useful wrapper/plugins of existing tools.
+- [neorp++.py](https://github.com/smallkirby/snippet/blob/master/exploit/kernel/neorp%2B%2B.py)
+  - wrapper of rp++ to find gadgets not affected with randomization of FGKASLR.
+  - **NOTE**: this script is roughly checked and maybe contain some bugs.
 ### templates
 Template exploit code for kernel-pwn.
 - [exploit.c](https://github.com/smallkirby/snippet/blob/master/exploit/kernel/exploit.c)
