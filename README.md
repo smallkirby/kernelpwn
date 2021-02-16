@@ -4,6 +4,10 @@ This repository collects CTF kernel-pwn challenges and writeups.
 Also, it introduces how to start learning kernel-pwn for beginners including me.  
 All the challs here are solved by me, though the writeup may be based on the author's one or others's ones.  
 I'm planning to include not only kernel-pwn, but also general non-userland pwn including QEMU, V8, multi-arch...  
+  
+**IMPORTANT**:   
+**If you know some good kernel(non-userland) pwn challs, please tell me and I'll solve it. Then I'll add it on this repo if I feel it good to solve.**  
+
 
 ## Good Challs
 - [SharedHouse](https://github.com/smallkirby/pwn-writeups/tree/master/asis2020quals/shared_house) from ASIS 2020 Quals
