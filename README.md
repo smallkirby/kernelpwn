@@ -33,7 +33,7 @@ Frequently Updated now...
 
 
 ## Beginners
-If you don't know how to prepare for solving kernel-pwn, please refer to [start-kernel-pwning](https://github.com/smallkirby/kernelpwn/start-kernel-pwning).
+If you don't know how to prepare for solving kernel-pwn, please refer to [start-kernel-pwning](https://github.com/smallkirby/kernelpwn/tree/master/start-kernel-pwning).
 
 - [meowmeow](https://github.com/smallkirby/pwn-writeups/tree/master/zer0pts2020/meowmeow) from zer0pts CTF 2020
   - buffer overflow
