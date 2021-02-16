@@ -5,8 +5,9 @@ Also, it introduces how to start learning kernel-pwn for beginners **including m
 All the challs here are solved by me, though the writeup may be based on the author's one or others's ones.
 I'm planning to include not only kernel-pwn, but also general non-userland pwn including QEMU, V8, multi-arch...
 
-**IMPORTANT**:
-**If you know some good kernel(non-userland) pwn challs, please tell me and I'll solve it. Then I'll add it on this repo if I feel it good to solve.**
+**IMPORTANT**:  
+**If you know some good kernel(non-userland) pwn challs, please tell me and I'll solve it. Then I'll add it on this repo if I feel it good to solve.**  
+And if you notice some wrong points in my writeups or blog posts, feel free to [contact me](https://twitter.com/smallkirby_).  
 
 
 ## Good Challs
@@ -32,7 +33,7 @@ I'm planning to include not only kernel-pwn, but also general non-userland pwn i
   - classic uffd/ race
   - https://smallkirby.hatenablog.com/entry/2020/08/09/085028
 
-Frequently Updated now...
+**Frequently Updated now...**
 
 
 ## Beginners
@@ -51,12 +52,14 @@ If you don't know how to prepare for solving kernel-pwn, please refer to [start-
   - no-SMEP/ no-SMAP/ no-KASLR/ custom syscall
   - https://smallkirby.hatenablog.com/entry/2021/02/14/142626
 
-Frequently Updated now...
+**Frequently Updated now...**
 
 
 ## My Blog
-My blog posts contain not only kernel-writeup, but normal userland-pwn and technique frequently used in pwning and so on...
-Please [check it out](https://smallkirby.hatenablog.com/archive).
+My blog posts contain not only kernel-writeup, but normal userland-pwn and technique frequently used in pwning and so on...  
+Please [check it out](https://smallkirby.hatenablog.com/archive).  
+**NOTE**:  
+The most parts of my blog is written when I'm solving the chall as a memo in HackMD and is converted to blog entry with [md2html converter](https://github.com/smallkirby/hackmd2hatena) . I received some DMs which ask me to write my blog posts in Englinsh and I'm willing to, cuz writing in English is not a so heavy task for me (regardless of the quality of my English). I know that my blog is ill-translated by Google translater :(    I'm planning to write them in English someday in the near future.
 
 ## References
 List of usefull resources for general.
