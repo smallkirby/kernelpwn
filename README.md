@@ -11,7 +11,7 @@ I'm planning to include not only kernel-pwn, but also general non-userland pwn i
 
 ## Good Challs
 - [SharedHouse](https://github.com/smallkirby/pwn-writeups/tree/master/asis2020quals/shared_house) from ASIS 2020 Quals
-  - SMEP/ SMAP/ no-KPTI/ single-core/ heap
+  - SMEP/ no-SMAP/ no-KPTI/ single-core/ heap
   - https://smallkirby.hatenablog.com/entry/2021/02/13/230520
 - [Spark](https://github.com/smallkirby/pwn-writeups/tree/master/hitcon2020/spark) from HITCON 2020
   - SMEP/ no-SMAP/ no-KPTI/ signle-core/ heap
