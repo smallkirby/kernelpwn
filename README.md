@@ -10,6 +10,9 @@ I'm planning to include not only kernel-pwn, but also general non-userland pwn i
 
 
 ## Good Challs
+- [kernel-rop]https://github.com/smallkirby/pwn-writeups/tree/master/hxp2020/kernel-rop/work)
+  - SMEP/ SMAP/ KPTI/ FGKASLR/ single-core/ kROP
+  - https://smallkirby.hatenablog.com/entry/2021/02/16/225125
 - [SharedHouse](https://github.com/smallkirby/pwn-writeups/tree/master/asis2020quals/shared_house) from ASIS 2020 Quals
   - SMEP/ no-SMAP/ no-KPTI/ single-core/ heap
   - https://smallkirby.hatenablog.com/entry/2021/02/13/230520
