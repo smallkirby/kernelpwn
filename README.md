@@ -11,6 +11,10 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 
 
 ## Good Challs
+- [Day One](https://github.com/smallkirby/pwn-writeups/tree/master/eof2020/dayone/work) from AIS3 EOF CTF 2021 Final
+  - SMEP/ SMAP/ KPTI/ KASLR/ eBPF verifier
+  - TODO
+  - NOTE: the first half part of the chall is a little bit boring cuz it is exactly the same with the report of [ZDI](https://www.thezdi.com/blog/2021/1/18/zdi-20-1440-an-incorrect-calculation-bug-in-the-linux-kernel-ebpf-verifier). But, the last half part, where we get root without `bpf_map.btf`, is cool. 
 - [kernel-rop](https://github.com/smallkirby/pwn-writeups/tree/master/hxp2020/kernel-rop/work) from hxp CTF 2020
   - SMEP/ SMAP/ KPTI/ FGKASLR/ single-core/ kROP
   - https://smallkirby.hatenablog.com/entry/2021/02/16/225125
