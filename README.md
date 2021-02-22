@@ -11,9 +11,13 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 
 
 ## Good Challs
+- [nutty](https://github.com/smallkirby/pwn-writeups/tree/master/union2021/nutty/work) from Union CTF 2021
+  - SMEP/ SMAP/ KPTI/ KASLR/ race without uffd/ SLOB
+  - https://smallkirby.hatenablog.com/entry/2021/02/22/053507
+  - NOTE: I ignored the heap-overflow bug, and invoked race condition w/o uffd to abuse `tty_struct`. Then, bypass SMAP by kROP in kheap(on `tty_strut`).
 - [Day One](https://github.com/smallkirby/pwn-writeups/tree/master/eof2020/dayone/work) from AIS3 EOF CTF 2021 Final
   - SMEP/ SMAP/ KPTI/ KASLR/ eBPF verifier
-  - TODO
+  - https://smallkirby.hatenablog.com/entry/2021/02/20/131428
   - NOTE: the first half part of the chall is a little bit boring cuz it is exactly the same with the report of [ZDI](https://www.thezdi.com/blog/2021/1/18/zdi-20-1440-an-incorrect-calculation-bug-in-the-linux-kernel-ebpf-verifier). But, the last half part, where we get root without `bpf_map.btf`, is cool. 
 - [kernel-rop](https://github.com/smallkirby/pwn-writeups/tree/master/hxp2020/kernel-rop/work) from hxp CTF 2020
   - SMEP/ SMAP/ KPTI/ FGKASLR/ single-core/ kROP

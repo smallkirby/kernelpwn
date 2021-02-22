@@ -26,3 +26,5 @@ Template exploit code for kernel-pwn.
   - extract bzImage/vmlinuz into vmlinux. This script is cited from [here](https://github.com/torvalds/linux).
 - [sender.py](https://github.com/smallkirby/snippet/blob/master/exploit/kernel/sender.py)
   - send gziped/base64ed exploit binary to the host.
+- [comp.sh](https://github.com/smallkirby/snippet/blob/master/exploit/kernel/comp.sh)
+  - compile the exploit with light musl-gcc and base64/gzip it.
