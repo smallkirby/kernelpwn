@@ -36,6 +36,51 @@ You can build kernel from source code cloned above, or you can use buildroot for
   - `make -j<your max logical core number>`
   - the outputs are placed on `output/images/`.
 
+## View kernel
+I explore kernel on vscode with [ms-vscode.cpptools-extension-pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) + [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) + [CTag](https://marketplace.visualstudio.com/items?itemName=jaydenlin.ctags-support) + [CScope](https://marketplace.visualstudio.com/items?itemName=xulion.codescope) + [C/C++ Intellisence](https://marketplace.visualstudio.com/items?itemName=austin.code-gnu-global).  
+For better experience, I recommend to follow below instructions:
+- Compile your kernel.
+ ```compile.sh
+ make menuconfig # or, just make defconfig
+ make -j8
+ ```
+- Generate `compile_commands.json`.
+```gen.sh
+python3 ./scripts/clang-tools/gen_compile_commands.py
+```
+- If your directory is for browsing-only purpose, remove compiled objects (I mean you use different dirs/sources for browsing and building kernel). Before removing them, **make sure that you backuped** your generated `compile_commands.json`.
+```rm.sh
+make clean
+```
+- Edit VSCode config.
+  - Edit config for `C/C++ Extensions`. Config file is `c_cpp_properties.json`. The config file would look like below. Make sure that `/arch/x86/` is your target arch.
+    ```c_cpp_properties.json
+    {
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/include/**",
+                "${workspaceFolder}/arch/x86/**",
+                "${default}"
+            ],
+            "defines": [
+                "__GNUC__",
+                "__KERNEL__"
+            ],
+            "compilerPath": "/bin/clang-11",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64",
+            "compileCommands": "${workspaceFolder}/compile_commands.cp.json"
+        }
+    ],
+    "version": 4
+    }
+    ```
+  - Edit config for Intellisence if needed. Config file is `compile_commands.json` you generated. Specify the path in `c_cpp_properties.json` as above.
+    - In theory if you use `compile_commands.json`, you don't need to specify `includePath`, `defines`, and so on in `c_cpp_properties.json`. If you define them both in `c_cpp_properties.json` and `compile_commands.json`, the latter is used.
+- Play [Smash bros](https://www.smashbros.com/), change your theme into gruvbox, which is the best theme in the world, and just wait til everything is indexed.
 
 ## run kernel
 Sample QEMU run script is [here](../test/).
