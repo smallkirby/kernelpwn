@@ -45,6 +45,18 @@ I'm just learning kernel-pwning now and this list might have some wrong descript
   - TODO
   - example challs: TODO
 
+## abuse vDSO
+  - TODO
+
+## bypass SMAP via kROP in kheap
+  - TODO
+
+## bypass SMAP/SMEP by directly change CR4
+  - TODO
+
+## temporaly bypass KPTI by setting CR3
+  - TODO
+
 # kROP
 ## init_task traversal to find current_cred
   - TODO
