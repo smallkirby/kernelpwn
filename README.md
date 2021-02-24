@@ -81,3 +81,9 @@ List of usefull resources for general.
 
 
 If you have any suggestions, feel free to contact me on [Twitter](https://twitter.com/smallkirby_).
+  
+  
+#### DISCLAIMER
+You can cite or use my code and comments in this repo as you like basically.  
+The exceptions are when the code belongs to some other licenses. In that case, follow them. Also, you can't use them for evil purpose. Finally, I don't take any responsibility for using my code or comment.  
+If you find something useful, or you notice that hoge is wrong, I'll appreciate if you leave comments via PR, Issue, DM, or Blog.
