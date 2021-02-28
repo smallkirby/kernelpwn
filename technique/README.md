@@ -36,7 +36,7 @@ I'm just learning kernel-pwning now and this list might have some wrong descript
   - TODO
   - example challs: TODO
 ## use modprobe_path
-  - TODO
+  - overwrite `modoprobe_path` with your evil shellscript's path. Then execve a binary which has an unknown format. For detailed principle, check [HERE](./modprobe_path.md).
   - example challs: TODO
 ## get RIP by n_tty_ops (w/ AAW)
   - TODO
