@@ -17,7 +17,7 @@ I'm just learning kernel-pwning now and this list might have some wrong descript
 
 # Race Condition
 ## classic userfaultfd
-  - TODO
+  - get RIP back to userland process while in kernel path by `userfaultfd`, which makes race-condition really stable. For the detailed principle, check [HERE](./userfualtfd.md).
   - example challs: TODO
 ## uffd with split object over two pages
   - TODO
