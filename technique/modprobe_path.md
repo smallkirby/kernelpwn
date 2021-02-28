@@ -16,7 +16,7 @@ The sections below describdes the principle of this tech.
 
 ## determine binary format
 When you type `./hoge` on your shell, it calls `execve` systemcall.
-```fs/exec.c
+```c fs/exec.c
 SYSCALL_DEFINE3(execve,
 		const char __user *, filename,
 		const char __user *const __user *, argv,
@@ -27,7 +27,7 @@ SYSCALL_DEFINE3(execve,
 ```
 
 This calls `do_execveat_common()` > `bprm_execve()` > `exec_binprm()`, then `search_binary_handler()`. This func searches `formats` for the appropriate loader function for the specified binary. `formats` is just a list of `struct linux_binfmt`.
-```formats.sh
+```sh formats.sh
 pwndbg> delist formats
 $22 = {
   next = 0xffffffff8248d6e0 <script_format>,
@@ -52,7 +52,7 @@ $26 = {
 ```
 
 This list has four formats. `elf_format` is common format of ELF binary. `compat_elf_format` seems to be identical with `elf_format`. `script_format` is for script files which begins with shebang(`#!`). `misc_format` is for misc binaries. I haven't check it deeply, but binary types for misc can be registered separetely. Each formats have below structure. The most important member here is `load_binary`.
-```formats-der.sh
+```sh formats-der.sh
 pwndbg> p script_format
 $27 = {
   lh = {
@@ -104,7 +104,7 @@ $30 = {
 ```
 
 In `search_binary_handler()`, `formats` list is for-looped and each `load_binary()` is called for the binary.
-```fs/exec.c
+```c fs/exec.c
  retry:
 	read_lock(&binfmt_lock);
 	list_for_each_entry(fmt, &formats, lh) {
@@ -125,19 +125,19 @@ In `search_binary_handler()`, `formats` list is for-looped and each `load_binary
 ```
 
 For example, `load_binary` of `elf_format` is `load_elf_binary()`. It just checks magick(`\x7FELF`) for ELF header of the binary.
-```fs/binfmt_elf.c
+```c fs/binfmt_elf.c
  	if (memcmp(elf_ex->e_ident, ELFMAG, SELFMAG) != 0)
 		goto out;
 ```
 
 `load_binary` of `script_format` is `load_script()`. It just check shebang. If shebang is vaild, `bprm->interpreter` is set to the specified interpreter and the original binary name becomes the one of argv, then re-search the appropriate handler in `search_binary_handler()`. 
-```fs/binfmt_script.c
+```c fs/binfmt_script.c
 	if ((bprm->buf[0] != '#') || (bprm->buf[1] != '!'))
 		return -ENOEXEC;
 ```
 
 If no handler is found for the specified binary format, it reaches the below path in `search_binary_handler()`.
-```fs/exec.c
+```c fs/exec.c
 	if (need_retry) {
 		if (printable(bprm->buf[0]) && printable(bprm->buf[1]) &&
 		    printable(bprm->buf[2]) && printable(bprm->buf[3]))
@@ -152,7 +152,7 @@ If no handler is found for the specified binary format, it reaches the below pat
 This checks the specified binary's first 4bytes are not printable(non-ASCIIs w/o tab or newline). Then, it calls `request_module()` with the format name `binfmt-<first 4bytes of the binary>`. It just calls `__request_module()`, then `call_modprobe()`.
 
 ## request_module()
-```kernel/kmod.c
+```c kernel/kmod.c
 static int call_modprobe(char *module_name, int wait)
 {
 	struct subprocess_info *info;
@@ -194,14 +194,14 @@ out:
 ```
 
 It tries to load the specified binary as a module. Default helper name is defined char-array in `kernel/kmod.c` as `/sbin/modprobe`. It is run as root priviledge. And It is not *const*.
-```kernel/kmod.c
+```c kernel/kmod.c
 char modprobe_path[KMOD_PATH_LEN] = "/sbin/modprobe";
 ```
 So you can overwrite it with your evil shellscript to get shell or to *cat* a flag.
 
 ## Mitigation
 In `call_usermodehelper_setup()`, `sub_info->path` is set as below.
-```kernel/umh.c
+```c kernel/umh.c
 #ifdef CONFIG_STATIC_USERMODEHELPER
 	sub_info->path = CONFIG_STATIC_USERMODEHELPER_PATH;
 #else
