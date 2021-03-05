@@ -58,6 +58,14 @@ TODO
 
 ## You have 
 TODO
+
+## The exploit is too big and can't send it to the server
+- MUST:
+  - compile it with light-weight libraries, such as musl-libc.
+  - stript it
+  - base64 and gzip it
+- CAN:
+  - upx it
   
 ## Exploit works locally, but doesn't work in the remote environment
 - **check the result of all functions and systemcalls.**
