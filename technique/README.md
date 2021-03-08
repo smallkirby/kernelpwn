@@ -30,6 +30,17 @@ I'm just learning kernel-pwning now and this list might have some wrong descript
 ## slub freelist overwrite
   - TODO
   - example challs: TODO
+  - **NOTE** Free-pointers in SLUB objects are now placed in the middle of objects (word aligned). This is introduced in [this patch(3202fa62fb43087387c65bfa9c100feffac74aa6)](https://lkml.org/lkml/2020/3/5/1129). Hence, overwriting the pointers is now difficult. It is introduced in April 1st, but it isn't fool at all... :(
+```c
+	} else if (freepointer_area > sizeof(void *)) {
+		/*
+		 * Store freelist pointer near middle of object to keep
+		 * it away from the edges of the object to avoid small
+		 * sized over/underflows from neighboring allocations.
+		 */
+		s->offset = ALIGN(freepointer_area / 2, sizeof(void *));
+	}
+```
 
 # get RIP / into LPE
 ## the most classic LPE
