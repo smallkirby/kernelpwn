@@ -11,6 +11,10 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 
 
 ## Good Challs
+- [pprofile](https://github.com/smallkirby/pwn-writeups/tree/master/line2021/pprofile/work) from LINE CTF 2021
+  - SMEP/ SMAP/ KPTI/ KASLR/ pointer validation/ modprobe_path
+  - https://smallkirby.hatenablog.com/entry/2021/03/21/160134
+  - I realized again that validating userland pointer is important and kernel can endure some wirte-bruteforce. If the validation doesn't exist in distributed binaries, I should recall this chall.
 - [nutty](https://github.com/smallkirby/pwn-writeups/tree/master/union2021/nutty/work) from Union CTF 2021
   - SMEP/ SMAP/ KPTI/ KASLR/ race without uffd/ SLOB
   - https://smallkirby.hatenablog.com/entry/2021/02/22/053507
@@ -41,7 +45,7 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
   - classic uffd/ race
   - https://smallkirby.hatenablog.com/entry/2020/08/09/085028
 
-**Frequently Updated now...**
+**Frequently Updated now...**  
 
 
 ## Beginners

@@ -48,6 +48,8 @@ I'm just learning kernel-pwning now and this list might have some wrong descript
   - example challs: TODO
 ## use modprobe_path
   - overwrite `modoprobe_path` with your evil shellscript's path. Then execve a binary which has an unknown format. For detailed principle, check [HERE](./modprobe_path.md).
+  - **You can/might use this technique WITHOUT ANY LEAK**. `modprobe_path` has one-byte entropy under KASLR. You can bruteforce the one byte if you have AAW.
+    - example chall: [pprofile](https://github.com/smallkirby/pwn-writeups/tree/master/line2021/pprofile/work) from LINE CTF 2021
   - example challs: TODO
 ## get RIP by n_tty_ops (w/ AAW)
   - TODO
