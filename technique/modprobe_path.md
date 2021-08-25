@@ -9,10 +9,10 @@ This MD describes how well-known modprobe_path technique works.
 3. You can execve the latter file of 2.
 4. `CONFIG_STATIC_USERMODEHELPER` is not enabled.
 
-In the most cases, 2 and 3 is fulfilled in kernel-pwn challs. So virtually, the only condition is that you have AAW.  
+In the most cases, 2 and 3 are fulfilled in kernel-pwn challs. So virtually, the only condition is that you have AAW.  
   
 
-The sections below describdes the principle of this tech.
+The sections below describes the principle of this tech.
 
 ## determine binary format
 When you type `./hoge` on your shell, it calls `execve` systemcall.
@@ -51,7 +51,7 @@ $26 = {
 }
 ```
 
-This list has four formats. `elf_format` is common format of ELF binary. `compat_elf_format` seems to be identical with `elf_format`. `script_format` is for script files which begins with shebang(`#!`). `misc_format` is for misc binaries. I haven't check it deeply, but binary types for misc can be registered separetely. Each formats have below structure. The most important member here is `load_binary`.
+This list has four formats. `elf_format` is a common format of ELF binary. `compat_elf_format` seems to be identical with `elf_format`. `script_format` is for script files which begin with shebang(`#!`). `misc_format` is for misc binaries. I haven't checked it deeply, but binary types for misc can be registered separetely. Each formats have below structure. The most important member here is `load_binary`.
 ```sh formats-der.sh
 pwndbg> p script_format
 $27 = {
@@ -124,13 +124,13 @@ In `search_binary_handler()`, `formats` list is for-looped and each `load_binary
 	read_unlock(&binfmt_lock);
 ```
 
-For example, `load_binary` of `elf_format` is `load_elf_binary()`. It just checks magick(`\x7FELF`) for ELF header of the binary.
+For example, `load_binary` of `elf_format` is `load_elf_binary()`. It just checks the magic(`\x7FELF`) for ELF header of the binary.
 ```c fs/binfmt_elf.c
  	if (memcmp(elf_ex->e_ident, ELFMAG, SELFMAG) != 0)
 		goto out;
 ```
 
-`load_binary` of `script_format` is `load_script()`. It just check shebang. If shebang is vaild, `bprm->interpreter` is set to the specified interpreter and the original binary name becomes the one of argv, then re-search the appropriate handler in `search_binary_handler()`. 
+`load_binary` of `script_format` is `load_script()`. It just checks shebang. If shebang is vaild, `bprm->interpreter` is set to the specified interpreter and the original binary name becomes the one of argv, then re-search the appropriate handler in `search_binary_handler()`. 
 ```c fs/binfmt_script.c
 	if ((bprm->buf[0] != '#') || (bprm->buf[1] != '!'))
 		return -ENOEXEC;
@@ -149,7 +149,7 @@ If no handler is found for the specified binary format, it reaches the below pat
 	}
 ```
 
-This checks the specified binary's first 4bytes are not printable(non-ASCIIs w/o tab or newline). Then, it calls `request_module()` with the format name `binfmt-<first 4bytes of the binary>`. It just calls `__request_module()`, then `call_modprobe()`.
+This checks if the specified binary's first 4bytes are not printable(non-ASCIIs w/o tab or newline). Then, it calls `request_module()` with the format name `binfmt-<first 4bytes of the binary>`. It just calls `__request_module()`, then `call_modprobe()`.
 
 ## request_module()
 ```c kernel/kmod.c
@@ -193,7 +193,7 @@ out:
 }
 ```
 
-It tries to load the specified binary as a module. Default helper name is defined char-array in `kernel/kmod.c` as `/sbin/modprobe`. It is run as root priviledge. And It is not *const*.
+It tries to load the specified binary as a module. Default helper name is defined as char-array in `kernel/kmod.c` as `/sbin/modprobe`. It is run as root priviledge. And It is not *const*.
 ```c kernel/kmod.c
 char modprobe_path[KMOD_PATH_LEN] = "/sbin/modprobe";
 ```
@@ -208,6 +208,6 @@ In `call_usermodehelper_setup()`, `sub_info->path` is set as below.
 	sub_info->path = path;
 #endif
 ```
-Here, `path` is `modprobe_path`. If `CONFIG_STATIC_USERMODEHELPER` is defined, usermode helper is set to `CONFIG_STATIC_USERMODEHELPER_PATH`, which is defined as constantly in build-time. Therefore, overwriting `modprobe_path` is useless when this config is enabled.  
-This patch is introduced below commit for mitigation of this kind of exploit.
+Here, `path` is `modprobe_path`. If `CONFIG_STATIC_USERMODEHELPER` is defined, usermode helper is set to `CONFIG_STATIC_USERMODEHELPER_PATH`, which is defined as a constant value on build-time. Therefore, overwriting `modprobe_path` is useless when this config is enabled.  
+This patch is introduced int below commit for mitigation of this kind of exploit.
 https://lore.kernel.org/lkml/20170810180618.22457-2-mcgrof@kernel.org/
