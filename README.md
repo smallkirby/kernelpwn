@@ -48,6 +48,18 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 **Frequently Updated now...**  
 
 
+## Nirugiri
+I don't know these challs are difficult or not and good or soso. But at least I feel these challs are worth solving.
+
+- [hwdbg]() from CakeCTF 2021
+  - TODO: writeup
+  - SMEP/ SMAP/ KPTI/ KASLR/ physicasl memory access/ modprobe_path
+  - https://smallkirby.hatenablog.com/entry/2021/08/30/142639
+  - You have AAW towards `/dev/mem/`, so all the protection is useless. However, `CONFIG_DEVMEM_STRICT` is enabled and you would be confused if you don't know this config.
+
+
+**Frequently Updated now...**  
+
 ## Beginners
 If you don't know how to prepare for solving kernel-pwn, please refer to [start-kernel-pwning](https://github.com/smallkirby/kernelpwn/tree/master/start-kernel-pwning).
 
@@ -70,12 +82,21 @@ If you don't know how to prepare for solving kernel-pwn, please refer to [start-
 I want to know some techniques to pwn in kernelland. If you know something I should know, please tell me.
 For the techniques I used to solve the challs listed above is listed [HERE(under construction)](./technique).
 
+**Frequently Updated now...**  
+
+
+## Configs to check
+Kernel is distributed in the form of `bzImage` and no information about build configuration is not provided in 99% cases. However, you have to change the way of exploit depending on the configuration. 
+Some config might hide important information. Some config might randomize the memory layout. Some config might make variables only readable...
+[`important_config`](important_config/README.md) directory collects the important configurations and tries to summarize how to check if it is enabled and how to bypass it.
+
 
 ## My Blog
 My blog posts contain not only kernel-writeup, but normal userland-pwn and technique frequently used in pwning and so on...
 Please [check it out](https://smallkirby.hatenablog.com/archive).
 **NOTE**:
 The most parts of my blog is written when I'm solving the chall as a memo in HackMD and is converted to blog entry with [md2html converter](https://github.com/smallkirby/hackmd2hatena) . I received some DMs which ask me to write my blog posts in Englinsh and I'm willing to, cuz writing in English is not a so heavy task for me (regardless of the quality of my English). I know that my blog is ill-translated by Google translater :(    I'm planning to write them in English someday in the near future.
+
 
 ## References
 List of usefull resources for general.
