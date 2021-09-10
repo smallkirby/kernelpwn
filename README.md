@@ -105,7 +105,7 @@ List of usefull resources for general.
 - [Non-userland pwn challs collection by hama](https://hama.hatenadiary.jp/entry/2019/12/01/231213)
 
 
-If you have any suggestions, feel free to contact me on [Twitter](https://twitter.com/smallkirby_).
+If you have any suggestions, feel free to contact me on [Twitter](https://twitter.com/smallkirby).
   
   
 #### DISCLAIMER
