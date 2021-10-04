@@ -63,6 +63,10 @@ I don't know these challs are difficult or not and good or soso. But at least I 
 ## Beginners
 If you don't know how to prepare for solving kernel-pwn, please refer to [start-kernel-pwning](https://github.com/smallkirby/kernelpwn/tree/master/start-kernel-pwning).
 
+- [lkgit(TBD)](#) from TSGCTF 2021
+  - SMEP/SMAP/KPTI/KASLR/race
+  - simple uffd, though appropriate fault timing handling is required.
+  - https://smallkirby.hatenablog.com/entry/2021/10/03/171804 
 - [meowmeow](https://github.com/smallkirby/pwn-writeups/tree/master/zer0pts2020/meowmeow) from zer0pts CTF 2020
   - buffer overflow
   - https://smallkirby.hatenablog.com/entry/2020/07/23/221605
