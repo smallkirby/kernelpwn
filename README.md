@@ -14,7 +14,7 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 - [shared knote](https://github.com/smallkirby/pwn-writeups/tree/master/bside2021/shared_knote/work) from Bsides Ahmedabad 2021
   - no-SMEP/ no-SMAP/ KPTI/ KASLR/ modprobe_path search/ invalid `fpos` use/ zero-addr mapping
   - https://smallkirby.hatenablog.com/entry/2021/11/07/140644
-  - I added `check /proc/sys/vm/mmap_min/addr` in my first procedureslist.
+  - I added `check /proc/sys/vm/mmap_min/addr` in my first procedures list.
 
 - [pprofile](https://github.com/smallkirby/pwn-writeups/tree/master/line2021/pprofile/work) from LINE CTF 2021
   - SMEP/ SMAP/ KPTI/ KASLR/ pointer validation/ modprobe_path
