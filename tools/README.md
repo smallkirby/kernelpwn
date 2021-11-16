@@ -5,7 +5,7 @@ This dir contains tools/templates and explanations about them.
 
 All templates and misc utilities are now managed under [`lysithea`](https://github.com/smallkirby/lysithea).  
 
-See `lysithea`'s [README](https://github.com/smallkirby/lysithea/README.md) for the details.
+See `lysithea`'s [README](https://github.com/smallkirby/lysithea/blob/master/README.md) for the details.
 
 All below scripts are now not maintained and wouldn't be updated. Check `lysithea` directly.
 
