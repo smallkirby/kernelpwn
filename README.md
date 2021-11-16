@@ -108,13 +108,11 @@ The most parts of my blog is written when I'm solving the chall as a memo in Hac
 
 
 ## References
-List of usefull resources for general.
-- [Usefull Structures in kernel by Master of pwning](https://ptr-yudai.hatenablog.com/entry/2020/03/16/165628)
-- [Kernel pwn challs collection by BrieflyX](https://github.com/BrieflyX/ctf-pwns)
-- [Non-userland pwn challs collection by hama](https://hama.hatenadiary.jp/entry/2019/12/01/231213)
 
+List of usefull resources are listed under [reference directory](./reference).  
 
 If you have any suggestions, feel free to contact me on [Twitter](https://twitter.com/smallkirby).
+
   
   
 #### DISCLAIMER
