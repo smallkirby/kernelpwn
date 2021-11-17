@@ -6,28 +6,6 @@ iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+0FF8C8B0+0FECC8B0 CA00
 Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
 
 
-Booting from ROM..c[?7l[2J/home/skb # echo hogehoge
-hogehoge
-/home/skb # exit
-[    8.659242][    T1] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000000
-[    8.664427][    T1] CPU: 0 PID: 1 Comm: init Tainted: G           O      5.9.16 #5
-[    8.665955][    T1] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
-[    8.666812][    T1] Call Trace:
-[    8.669287][    T1]  panic+0xee/0x2a1
-[    8.671273][    T1]  ? tick_sched_timer+0x46/0x70
-[    8.673156][    T1]  do_exit.cold+0x5a/0xc2
-[    8.674387][    T1]  ? clockevents_program_event+0x88/0xe0
-[    8.674653][    T1]  do_group_exit+0x2f/0x70
-[    8.675214][    T1]  __x64_sys_exit_group+0xf/0x10
-[    8.675426][    T1]  do_syscall_64+0x33/0x40
-[    8.675604][    T1]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
-[    8.676340][    T1] RIP: 0033:0x4c30b6
-[    8.677099][    T1] Code: 31 ff b8 09 00 00 00 0f 05 48 89 c7 e8 54 fe ff ff 48 89 c7 e8 00 fe ff ff 85 c0 79 01 f4 58 c3 48 63 ff b8 e7 00 00 00 0f 05 <ba> 3c 00 00 00 48 89 d0 0f 05 eb f9 48 89 f8 48 89 f7 48 89 d6 48
-[    8.677716][    T1] RSP: 002b:00007fff28c8d578 EFLAGS: 00000202 ORIG_RAX: 00000000000000e7
-[    8.678018][    T1] RAX: ffffffffffffffda RBX: 0000000001e5c020 RCX: 00000000004c30b6
-[    8.678233][    T1] RDX: 0000000001e5c020 RSI: 0000000000000000 RDI: 0000000000000000
-[    8.678455][    T1] RBP: 00007fff28c8d8b0 R08: 0000000000000000 R09: 0000000000000000
-[    8.680569][    T1] R10: 0000000000000000 R11: 0000000000000202 R12: 00007fff28c8d8a0
-[    8.681108][    T1] R13: 0000000000405863 R14: 0000000000000000 R15: 0000000000000000
-[    8.682060][    T1] Kernel Offset: disabled
-[    8.682969][    T1] Rebooting in 1 seconds..
+Booting from ROM..c[?7l[2J/home/skb # ls
+[1;32mhoge.ko[m  [1;32mtest[m
+/home/skb # ./
