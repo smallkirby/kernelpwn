@@ -7,5 +7,6 @@
 !README.md
 !exploit.c
 !.lysithea.log
+!.lysithea.conf
 !.gitignore
 !test.c
