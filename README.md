@@ -62,6 +62,11 @@ I don't know these challs are difficult or not and good or soso. But at least I 
   - https://smallkirby.hatenablog.com/entry/2021/08/30/142639
   - You have AAW towards `/dev/mem/`, so all the protection is useless. However, `CONFIG_DEVMEM_STRICT` is enabled and you would be confused if you don't know this config.
 
+- [Stonks Socket](https://github.com/smallkirby/pwn-writeups/tree/master/hacklu2021/stonks_socket/work) from Hack.lu CTF 2021
+  - no-SMEP/ no-SMAP/ race w/o uffd/ custom TCP hook
+  - https://smallkirby.hatenablog.com/entry/2021/12/02/162758
+  - challenge itself is a little bit buggy, but enough for practice of race w/o uffd.
+
 
 **Frequently Updated now...**  
 
