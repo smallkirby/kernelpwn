@@ -11,6 +11,12 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 
 
 ## Good Challs
+
+- [klibrary](https://github.com/smallkirby/pwn-writeups/tree/master/3k2021/klibrary/work) from 3kCTF 2021
+  - SMEP/ SMAP/ KPTI/ KASLR/ race w/ uffd/ `tty_struct`/ `modprobe_overwrite` via vtable in `tty_struct`
+  - TBD
+  - between beginner and med
+
 - [shared knote](https://github.com/smallkirby/pwn-writeups/tree/master/bside2021/shared_knote/work) from Bsides Ahmedabad 2021
   - no-SMEP/ no-SMAP/ KPTI/ KASLR/ modprobe_path search/ invalid `fpos` use/ zero-addr mapping
   - https://smallkirby.hatenablog.com/entry/2021/11/07/140644
