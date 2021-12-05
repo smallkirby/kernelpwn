@@ -14,7 +14,7 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 
 - [klibrary](https://github.com/smallkirby/pwn-writeups/tree/master/3k2021/klibrary/work) from 3kCTF 2021
   - SMEP/ SMAP/ KPTI/ KASLR/ race w/ uffd/ `tty_struct`/ `modprobe_overwrite` via vtable in `tty_struct`
-  - TBD
+  - https://smallkirby.hatenablog.com/entry/2021/12/05/132253
   - between beginner and med
 
 - [shared knote](https://github.com/smallkirby/pwn-writeups/tree/master/bside2021/shared_knote/work) from Bsides Ahmedabad 2021
