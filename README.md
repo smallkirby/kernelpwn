@@ -12,6 +12,12 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 
 ## Good Challs
 
+- [kone_gadget](https://github.com/smallkirby/pwn-writeups/tree/master/seccon2021/kone_gadget/work) from SECCON CTF 2021
+  - SMEP/ SMAP/ KPTI/ no-KASLR/ unprivileged ebpf installation is NOT allowed / well-crafted shellcode in JIT-ed seccomp filter
+  - https://smallkirby.hatenablog.com/entry/2021/12/12/211601
+  - you are able to control RIP but all the registers are zero-cleared before it. Unprivileged ebpf is forbidden, but seccomp filter is still JIT-ed. you abuse operand to be shellcode and jump everytime to next opcode (which means next shellcode).
+  - Unexpected solution is `jmp &flag`, which leaks secret content in `CODE` secition of panic message. It means that if the kernel uses `initramfs` and KASLR is disabled (or we have full knowlege of memory layout), just getting RIP means success of exploit, SMEP/SMAP is useless.
+
 - [klibrary](https://github.com/smallkirby/pwn-writeups/tree/master/3k2021/klibrary/work) from 3kCTF 2021
   - SMEP/ SMAP/ KPTI/ KASLR/ race w/ uffd/ `tty_struct`/ `modprobe_overwrite` via vtable in `tty_struct`
   - https://smallkirby.hatenablog.com/entry/2021/12/05/132253
