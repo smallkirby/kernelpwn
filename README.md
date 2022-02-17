@@ -136,7 +136,14 @@ If you have any suggestions, feel free to contact me on [Twitter](https://twitte
 
   
   
-#### DISCLAIMER
-You can cite or use my code and comments in this repo as you like basically.  
-The exceptions are when the code belongs to some other licenses. In that case, follow them. Also, you can't use them for evil purpose. Finally, I don't take any responsibility for using my code or comment.  
-If you find something useful, or you notice that hoge is wrong, I'll appreciate if you leave comments via PR, Issue, DM, or Blog.
+## LICENSE
+
+This repository is licensed under [MIT](./LICENSE).
+
+Note that this license is applied only to WHAT I WROTE.
+
+Binary of kernel challenges themselves would be in many cases licensed under other licenses.
+
+Please follow these in that case.
+
+If you think this or related repositories violate your rights, please contact me.
