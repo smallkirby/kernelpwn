@@ -12,6 +12,10 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 
 ## Good Challs
 
+- [nightclub](https://github.com/smallkirby/pwn-writeups/tree/master/pb2021/nightclub/work) from pbctf 2021
+  - SMEP/ SMAP/ KPTI/ KASLR/ uffd disabled/ heap
+  - https://smallkirby.hatenablog.com/entry/2022/02/17/092547
+
 - [kone_gadget](https://github.com/smallkirby/pwn-writeups/tree/master/seccon2021/kone_gadget/work) from SECCON CTF 2021
   - SMEP/ SMAP/ KPTI/ no-KASLR/ unprivileged ebpf installation is NOT allowed / well-crafted shellcode in JIT-ed seccomp filter
   - https://smallkirby.hatenablog.com/entry/2021/12/12/211601
