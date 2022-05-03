@@ -21,6 +21,11 @@
 - [Google security-research (EN)](https://github.com/google/security-research)
 - [blog by Alexander Popov (EN/RU)](https://a13xp0p0v.github.io/)
 
+## kheap techniques
+
+- [Context Conservation](https://www.usenix.org/system/files/sec22fall_zeng.pdf): Zeng, Kyle, et al. "Playing for K (H) eaps: Understanding and Improving Linux Kernel Exploit Reliability."
+  - loop and check TSC inside it before entering critical section to confirm that it is the beginning of its CFS timeslice
+
 ## Memory reference
 
 - [Linux memory map](https://www.kernel.org/doc/Documentation/x86/x86_64/mm.txt)
