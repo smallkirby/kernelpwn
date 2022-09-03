@@ -20,6 +20,7 @@
 - [CTFするぞ (EN/JP)](https://ptr-yudai.hatenablog.com/)
 - [Google security-research (EN)](https://github.com/google/security-research)
 - [blog by Alexander Popov (EN/RU)](https://a13xp0p0v.github.io/)
+- [Syst3m Failure (EN)](https://syst3mfailure.io/corjail)
 
 ## kheap techniques
 
