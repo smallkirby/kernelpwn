@@ -12,6 +12,10 @@ And if you notice some wrong points in my writeups or blog posts, feel free to [
 
 ## Good Challs
 
+- [corjail](https://github.com/smallkirby/pwn-writeups/tree/master/cor2022/corjail) from [CoRCTF2022](https://github.com/Crusaders-of-Rust/corCTF-2022-public-challenge-archive/tree/master/pwn/corjail/task/build)
+  - SMEP/ SMAP/ KPTI/ KASLR/ Docker escape/ heap randomized/ heap hardened/ uffd disabled/ modprobe_path static/ `poll_list`/ `user_key_payload`/ kROP on `tty_struct`
+  - https://smallkirby.hatenablog.com/entry/corjail
+
 - [Fire of Salvation](https://github.com/smallkirby/pwn-writeups/tree/master/cor2021/fire_of_salvation/work) from [CoRCTF2021](https://github.com/Crusaders-of-Rust/corCTF-2021-public-challenge-archive/tree/main/pwn/fire-of-salvation)
   - SMEP/ SMAP/ KPTI/ KASLR/ FGKASLR/ heap randomized/ `msg_msg`/ uffd
   - https://smallkirby.hatenablog.com/entry/2022/02/24/120003
