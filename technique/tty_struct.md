@@ -164,6 +164,12 @@ struct tty_struct {
 }
 ```
 
+### AAW (simplified version of RIP control)
+
+If it is enough for you just to write arbitrary addr at arbitrar addr(AAW), it is easier than getting full RIP control.
+
+You can control some register values when calling `ioctl()` toward `/dev/ptmx`. In detail, you can specify arbitrary 4byte of `RBX, RCX, RSI` as 2nd arg of `ioctl`. You can specify arbitrary 8byte of `RDX, R8, R12` as 3rd arg of `ioctl`, So if you write gadget `mov DWORD[rdx], rsi`, you can write arbitrary 4byte at arbitrary addr. By repeating it, you can achieve arbitrary write. If `STATIC_USERMODEHELPER` is disabled, it is much enough for you to get root by overwriting `modprobe_path` (see [modprobe_path.md](./modprobe_path.md) for detail).
+
 ## Related CTF challs
 
 - [corjail](https://github.com/smallkirby/pwn-writeups/tree/master/cor2022/corjail) from [CoRCTF2022](https://github.com/Crusaders-of-Rust/corCTF-2022-public-challenge-archive/tree/master/pwn/corjail/task/build)
