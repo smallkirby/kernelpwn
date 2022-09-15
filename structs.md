@@ -1,4 +1,4 @@
-# Userful kernel structures
+# Useful kernel structures
 
 
 🚧🚧 Currently, under construct! 🚧🚧
