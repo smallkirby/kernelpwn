@@ -1,0 +1,20 @@
+#!/bin/sh
+
+chown 0:0 -R /
+chown 1000 /home/skb
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t tmpfs tmpfs /tmp
+mount -t devtmpfs devtmpfs /dev
+mdev -s
+mkdir -p /dev/pts
+mount -vt devpts -o gid=4,mode=620 none /dev/pts
+chmod 666 /dev/ptmx
+
+insmod /home/skb/hoge.ko
+dmesg -n 1
+chmod 0666 /dev/hoge
+cd /home/skb
+#setsid /bin/cttyhack setuidgid 1000 /bin/sh
+setsid /bin/cttyhack setuidgid 0 /bin/sh
