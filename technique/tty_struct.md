@@ -170,6 +170,10 @@ If it is enough for you just to write arbitrary addr at arbitrar addr(AAW), it i
 
 You can control some register values when calling `ioctl()` toward `/dev/ptmx`. In detail, you can specify arbitrary 4byte of `RBX, RCX, RSI` as 2nd arg of `ioctl`. You can specify arbitrary 8byte of `RDX, R8, R12` as 3rd arg of `ioctl`, So if you write gadget `mov DWORD[rdx], rsi`, you can write arbitrary 4byte at arbitrary addr. By repeating it, you can achieve arbitrary write. If `STATIC_USERMODEHELPER` is disabled, it is much enough for you to get root by overwriting `modprobe_path` (see [modprobe_path.md](./modprobe_path.md) for detail).
 
+## Note
+
+- [EDIT] I realized there is useful gadget in kernel: `0xffffffff813a478a: push rdx; mov ebp, 0x415bffd9; pop rsp; pop r13; pop rbp; ret;`. It is equivalent to `mov rsp, rdx`. As stated above, `RDX` can be fully controlled by 3rd argument of `ioctl()`. So it might be the case that you don't have to do this *2 phased kROP*. But I still love this kROP, it is wonderful :)
+
 ## Related CTF challs
 
 - [corjail](https://github.com/smallkirby/pwn-writeups/tree/master/cor2022/corjail) from [CoRCTF2022](https://github.com/Crusaders-of-Rust/corCTF-2022-public-challenge-archive/tree/master/pwn/corjail/task/build)
