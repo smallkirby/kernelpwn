@@ -97,3 +97,70 @@ $1 = 0xffffffff81e33b60
 (gdb) x/s $rdi
 0xffffffff81e33b60:     "/sbin/modprobe"
 ```
+
+### in case of `core_pattern`
+
+```c
+void do_coredump(const kernel_siginfo_t *siginfo) {
+	// ...
+	old_cred = override_creds(cred);
+	ispipe = format_corename(&cn, &cprm, &argv, &argc);
+	// ...
+}
+
+// NOTE: this function cannot be found in /proc/kallsyms
+static int format_corename(struct core_name *cn, struct coredump_params *cprm,
+			   size_t **argv, int *argc)
+{
+	const struct cred *cred = current_cred();
+	const char *pat_ptr = core_pattern;
+	// ...
+}
+```
+
+1. Check for the address of `override_creds()` in `/proc/kallsyms`
+
+```sh
+/ # grep override_creds /proc/kallsyms
+ffffffff81074250 T override_creds
+```
+
+2. Set a breakpoint on override_creds function and resume
+
+```sh
+(gdb) break *0xffffffff81074250
+breakpoint 1 also set at pc 0xffffffff81074250.
+(gdb) continue
+Continuing.
+```
+
+3. Write a program that crashes and run it
+
+```c
+// compile with gcc crash.c -static -o crash
+int main() {
+        ((void(*)())0)();
+}
+// run with ./crash
+```
+
+4. Go to GDB and follow the following steps
+
+- Our GDB should have hit our `override_creds` breakpoint.
+- We will now run until we exit this function with `finish` command
+- We will then disassemble at our instruction pointer to look for our pointer to core_pattern
+
+```sh
+(gdb) finish
+Run till exit from #0  0xffffffff81074250 in ?? ()
+(gdb) x/5i $rip
+x/50i $rip
+=> 0xffffffff811b1e83:  movsxd rsi,DWORD PTR [rip+0xcfec7e]        # 0xffffffff81eb0b08
+   0xffffffff811b1e8a:  xor    edi,edi
+   0xffffffff811b1e8c:  mov    edx,0xcc0
+   0xffffffff811b1e91:  mov    QWORD PTR [rbp-0x100],rax
+   0xffffffff811b1e98:  movzx  r13d,BYTE PTR [rip+0xcfec80]        # 0xffffffff81eb0b20
+(gdb) x/s 0xffffffff81eb0b20
+0xffffffff81eb0b20:     "core"
+```
+
